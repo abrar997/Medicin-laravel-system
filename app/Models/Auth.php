@@ -10,6 +10,8 @@ class Auth extends Model
     protected  $table = 'users';
     public $fillable = [
         'name',
+        'email',
+        'password',
         'age',
         'phone',
         'location'
