@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('age');
             $table->string('phone');
             $table->string('location');
+            $table->enum('type',['admin','user'])->default('user');
             $table->timestamps();
         });
     }

@@ -31,16 +31,21 @@ class AuthControlle extends Controller
         //     return $validate ;
         // } else {
 
-            $data = new Auth();
-            $data->name = $request->input('name');
-            $data->age = $request->input('age');
-            $data->phone = $request->input('phone');
-            $data->location = $request->input('location');
-            $data->email = $request->input('email');
-            $data->password = Hash::make($request->input('password'));
-            // $data['password']=Hash::make();
-            $data->save();
-            return $data;
-        }
+        $data = new Auth();
+        $data->name = $request->input('name');
+        $data->age = $request->input('age');
+        $data->phone = $request->input('phone');
+        $data->location = $request->input('location');
+        $data->email = $request->input('email');
+        $data->type = $request->input('type');
+        $data->password = Hash::make($request->input('password'));
+        // $data['password']=Hash::make();
+        $data->save();
+        return $data;
     }
+    public function Allusers()
+    {
+        return   Auth::all();
+    }
+}
 // }

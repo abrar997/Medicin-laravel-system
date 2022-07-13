@@ -14,7 +14,8 @@ class Auth extends Model
         'password',
         'age',
         'phone',
-        'location'
+        'location',
+        'type'
     ];
     use HasFactory;
 }
