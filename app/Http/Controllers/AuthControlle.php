@@ -39,13 +39,28 @@ class AuthControlle extends Controller
         $data->email = $request->input('email');
         $data->type = $request->input('type');
         $data->password = Hash::make($request->input('password'));
-        // $data['password']=Hash::make();
         $data->save();
         return $data;
     }
     public function Allusers()
     {
-        return   Auth::all();
+        return   Auth::all()
+            // ->paginate('3')
+        ;
+    }
+
+    public function login(Request $request)
+    {
+        $user = Auth::where('email', $request->email)
+        // ->where('password', $request->password)
+        ->
+        first();
+        if (!$user
+            //    || !Hash::check($request->password,$user->password)
+        ) {
+            return ['Error' => "password or email not correct "];
+        }
+        return $user;
     }
 }
 // }
